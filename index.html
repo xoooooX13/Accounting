@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus ERP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: 'var(--bg-background)',
+              surface: 'var(--bg-surface)',
+              'surface-highlight': 'var(--bg-surface-highlight)',
+              border: 'var(--border-color)',
+              primary: '#5841A3',
+              'primary-light': '#7c66c7',
+              accent: '#BE95FF',
+              success: '#10B981',
+              warning: '#F59E0B',
+              danger: '#EF4444',
+              text: {
+                main: 'var(--text-main)',
+                muted: 'var(--text-muted)'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',
+              'glow': '0 0 15px rgba(88, 65, 163, 0.3)' 
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-background: #F3F4F6;
+        --bg-surface: #FFFFFF;
+        --bg-surface-highlight: #F9FAFB;
+        --text-main: #111827;
+        --text-muted: #6B7280;
+        --border-color: #E5E7EB;
+      }
+      .dark {
+        --bg-background: #0B0E14;
+        --bg-surface: #151A25;
+        --bg-surface-highlight: #1E2532;
+        --text-main: #F1F5F9;
+        --text-muted: #94A3B8;
+        --border-color: #2A3241;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-background);
+        color: var(--text-main);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-color); 
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #5841A3; 
+      }
+      
+      /* Input autofill fix for dark mode */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus, 
+      input:-webkit-autofill:active{
+          -webkit-box-shadow: 0 0 0 30px var(--bg-surface) inset !important;
+          -webkit-text-fill-color: var(--text-main) !important;
+          transition: background-color 5000s ease-in-out 0s;
+      }
+
+      /* Print Styles */
+      @media print {
+        @page { margin: 10mm; size: A4; }
+        body { background-color: white !important; color: black !important; }
+        
+        /* Hide UI Elements */
+        aside, header, .no-print { display: none !important; }
+        
+        /* Reset Layout */
+        main { padding: 0 !important; margin: 0 !important; overflow: visible !important; height: auto !important; }
+        /* Removed .grid override to preserve table layouts */
+        .col-span-3 { width: 100% !important; }
+        
+        /* Ensure readability */
+        * { color: black !important; box-shadow: none !important; text-shadow: none !important; }
+        
+        /* Table Styles */
+        .bg-surface, .bg-surface-highlight { background-color: transparent !important; border: none !important; }
+        .border-border { border-color: #ddd !important; }
+        
+        /* Hide Action Columns in Tables */
+        th:last-child, td:last-child { display: none !important; }
+        
+        /* Specific Fixes */
+        button { display: none !important; } /* Hide all buttons */
+        
+        .print-visible { display: block !important; }
+        .print-hidden { display: none !important; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
